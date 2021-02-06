@@ -31,9 +31,7 @@ const checkin = ['12:00', '13:00', '14:00'];
 const checkout = ['12:00', '13:00', '14:00'];
 const features = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
 const description = ['Тут вы найдёте всё что нужно для вашего отдыха', 'Для тех кто хочет выживать', 'Райское место'];
-const photos = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg',
-                'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
-                'http://o0.github.io/assets/images/tokyo/hotel3.jpg'];
+const photos = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg', 'http://o0.github.io/assets/images/tokyo/hotel2.jpg', 'http://o0.github.io/assets/images/tokyo/hotel3.jpg'];
 const locationMinX = 35.65000;
 const locationMaxX = 35.70000;
 const locationMinY = 139.70000;
@@ -46,47 +44,47 @@ const randonElementArray = function (arr) {
 }
 
 //массив случайной длинный
-var randomArray = function (arr) {
+let randomArray = function (arr) {
   let index = randomInteger(0, arr.length - 1);
   let newarr = arr.slice(index, index + randomInteger(1, arr.length));
   return newarr;
 };
 
 const creatObject = function () {
-
   let locationX = (randomFloat(locationMinX, locationMaxX, 5));
   let locationY = (randomFloat(locationMinY, locationMaxY, 5));
-  return{
+  return {
+    author: {
+      avatar: 'img/avatars/user0' + randonElementArray(avatarNumbers) + '.png',
+    },
 
-  author: {
-    avatar: 'img/avatars/user0' + randonElementArray(avatarNumbers) + '.png',
-  },
+    offer: {
+      title: randonElementArray(titlePosts),
+      address: locationX + ', ' + locationY,
+      price: randomInteger(priceMin, priceMax),
+      type: randonElementArray(type),
+      rooms: randomInteger(roomMin, roomMax),
+      guests: randomInteger(guestMin, guestMax),
+      checkin: randonElementArray(checkin),
+      checkout: randonElementArray(checkout),
+      features: randomArray(features),
+      description: randonElementArray(description),
+      photos: randomArray(photos),
+    },
 
-  offer: {
-    title: randonElementArray(titlePosts),
-    address: locationX + ', ' + locationY,
-    price: randomInteger(priceMin, priceMax),
-    type: randonElementArray(type),
-    rooms: randomInteger(roomMin, roomMax),
-    guests: randomInteger(guestMin, guestMax),
-    checkin: randonElementArray(checkin),
-    checkout: randonElementArray(checkout),
-    features: randomArray(features),
-    description: randonElementArray(description),
-    photos: randomArray(photos),
-  },
-
-  location: {
-    x: locationX,
-    y: locationY
+    location: {
+      x: locationX,
+      y: locationY,
+    },
   }
-}
 };
 
-let testOjects = function () {
-  var objects = [];
-  for (var i = 0; i < quantityObject; i++) {
+let testObjects = function () {
+  let objects = [];
+  for (let i = 0; i < quantityObject; i++) {
     objects.push(creatObject());
   }
   return objects;
 };
+
+testObjects();
