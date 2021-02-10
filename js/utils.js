@@ -16,4 +16,17 @@ function randomFloat(min, max, fixed) {
   return rand.toFixed(fixed);
 }
 
-export {randomInteger, randomFloat};
+//нахождение случайного элемена массива
+const randonElementArray = function (arr) {
+  let element = arr[randomInteger(0, arr.length-1)];
+  return element;
+}
+
+//массив случайной длинный
+let randomArray = function (arr) {
+  let index = randomInteger(0, arr.length - 1);
+  let newarr = arr.slice(index, index + randomInteger(1, arr.length));
+  return newarr;
+};
+
+export {randomInteger, randomFloat, randonElementArray, randomArray};

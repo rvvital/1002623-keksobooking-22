@@ -1,4 +1,4 @@
-import {randomInteger, randomFloat} from './random.js';
+import {randomInteger, randomFloat, randonElementArray, randomArray} from './utils.js';
 
 const quantityObject = 10;
 
@@ -20,19 +20,6 @@ const locationMinX = 35.65000;
 const locationMaxX = 35.70000;
 const locationMinY = 139.70000;
 const locationMaxY = 139.80000;
-
-//нахождение случайного элемена массива
-const randonElementArray = function (arr) {
-  let element = arr[randomInteger(0, arr.length-1)];
-  return element;
-}
-
-//массив случайной длинный
-let randomArray = function (arr) {
-  let index = randomInteger(0, arr.length - 1);
-  let newarr = arr.slice(index, index + randomInteger(1, arr.length));
-  return newarr;
-};
 
 const creatObject = function () {
   let locationX = (randomFloat(locationMinX, locationMaxX, 5));
