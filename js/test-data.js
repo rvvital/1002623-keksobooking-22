@@ -50,7 +50,7 @@ const creatObject = function () {
   }
 };
 
-let testObjects = function () {
+let generateTestObjects = function () {
   let objects = [];
   for (let i = 0; i < quantityObject; i++) {
     objects.push(creatObject());
@@ -58,5 +58,7 @@ let testObjects = function () {
   return objects;
 };
 
-testObjects();
+//generateTestObjects();
+
+export{generateTestObjects};
 
