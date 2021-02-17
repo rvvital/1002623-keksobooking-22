@@ -42,7 +42,7 @@ let getCard = function (obj) {
   newCard.querySelector('.popup__features').textContent = obj.offer.features.join(', ');
   newCard.querySelector('.popup__description').textContent = obj.offer.description;
   newCard.querySelector('.popup__photos').innerHTML = '';
-  newCard.appendChild(createFragmentPhotos(obj.offer.photos));
+  newCard.querySelector('.popup__photos').appendChild(createFragmentPhotos(obj.offer.photos));
   newCard.querySelector('.popup__avatar').src = obj.author.avatar;
 
   // Добавляем объявление на страницу

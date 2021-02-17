@@ -58,7 +58,7 @@ let generateTestObjects = function () {
   return objects;
 };
 
-generateTestObjects();
+//generateTestObjects();
 
 export{generateTestObjects};
 
