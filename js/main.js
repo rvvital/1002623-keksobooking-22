@@ -38,7 +38,7 @@ const map = L.map('map-canvas')
   .setView({
     lat: 35.66872,
     lng: 139.75355,
-  }, 10);
+  }, 12);
 
 L.tileLayer(
   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -48,7 +48,7 @@ L.tileLayer(
 ).addTo(map);
 
 const mainPinIcon = L.icon({
-  iconUrl: '../../img/main-pin.svg',
+  iconUrl: './img/main-pin.svg',
   iconSize: [52, 52],
   iconAnchor: [26, 52],
 });
@@ -68,7 +68,7 @@ mainPinMarker.addTo(map);
 
 inputAdress.setAttribute('value', (mainPinMarker.getLatLng().lat.toFixed(5) + ', ' + mainPinMarker.getLatLng().lng.toFixed(5)));
 
-mainPinMarker.on('moveend', (evt) => {
+mainPinMarker.on('move', (evt) => {
   let coordinates = evt.target.getLatLng();
   inputAdress.setAttribute('value', (coordinates.lat.toFixed(5) + ', ' + coordinates.lng.toFixed(5)));
 });
@@ -76,25 +76,34 @@ mainPinMarker.on('moveend', (evt) => {
 ////////////////////////
 
 const baseIcon = L.icon({
-  iconUrl: '../../img/pin.svg',
+  iconUrl: './img/pin.svg',
   iconSize: [52, 52],
   iconAnchor: [26, 52],
 });
 
+
 let baseMarkerToMap = function (array) {
 
-
   array.forEach ((element) => {
-    const createCustomPopup = () => `<section>
-    <h3 >${element.offer.title}</h3>
-    <p>Координаты: ${element.offer.address}</p>
-    <p>Цена: ${element.offer.price}</p>
-    <p>Тип: ${element.offer.type}</p>
-    <p>Комнат: ${element.offer.rooms}</p>
-    <p>Гостей: ${element.offer.guests}</p>
-    <p>Удобства: ${element.offer.features}</p>
-    <p>Примечание: ${element.offer.description}</p>
-  </section>`;
+
+    const createCustomPopup = () => {
+      const balloonTemplate = document.querySelector('#card').content.querySelector('.popup');
+      const popupElement = balloonTemplate.cloneNode(true);
+
+      popupElement.querySelector('.popup__avatar').src = element.author.avatar;
+
+      popupElement.querySelector('.popup__title').textContent = element.offer.title;
+      popupElement.querySelector('.popup__text--address').textContent = element.offer.address;
+      popupElement.querySelector('.popup__text--price').textContent = `${element.offer.price} ₽/ночь`;
+      popupElement.querySelector('.popup__type').textContent = element.offer.type;
+      popupElement.querySelector('.popup__text--capacity').textContent = `${element.offer.rooms} комнаты для ${element.offer.guests} гостей`;
+      popupElement.querySelector('.popup__text--time').textContent = `Заезд после ${element.offer.checkin}, выезд до ${element.offer.checkout}`;
+      popupElement.querySelector('.popup__features').textContent = element.offer.features;
+      popupElement.querySelector('.popup__description').textContent = element.offer.description;
+      popupElement.querySelector('.popup__photo').src = element.offer.photos;
+
+      return popupElement;
+    };
 
     const baseMarker = L.marker(
       {
@@ -114,5 +123,5 @@ let baseMarkerToMap = function (array) {
       );
   });
 }
-
 baseMarkerToMap(generateTestObjects());
+
