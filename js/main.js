@@ -1,4 +1,4 @@
-import './cards.js';
+/* global L:readonly */
 import{generateTestObjects} from './test-data.js';
 
 let mainForm = document.querySelector('.ad-form');
@@ -22,19 +22,19 @@ mapFeatures.setAttribute('disabled', 'disabled');
 
 //Добавляем главный маркер
 const map = L.map('map-canvas')
-.on('load', () => {
-  mainForm.classList.remove('ad-form--disabled');
-  adFormHeader.removeAttribute('disabled');
-adFormElements.forEach((element) => {
-  element.removeAttribute('disabled');
-});
-inputAdress.setAttribute('disabled', 'disabled');
-mapFilters.classList.remove('ad-form--disabled');
-mapFilter.forEach((element) => {
-  element.removeAttribute('disabled');
-});
-mapFeatures.removeAttribute('disabled');
-})
+  .on('load', () => {
+    mainForm.classList.remove('ad-form--disabled');
+    adFormHeader.removeAttribute('disabled');
+    adFormElements.forEach((element) => {
+      element.removeAttribute('disabled');
+    });
+    inputAdress.setAttribute('disabled', 'disabled');
+    mapFilters.classList.remove('ad-form--disabled');
+    mapFilter.forEach((element) => {
+      element.removeAttribute('disabled');
+    });
+    mapFeatures.removeAttribute('disabled');
+  })
   .setView({
     lat: 35.66872,
     lng: 139.75355,
@@ -81,17 +81,11 @@ const baseIcon = L.icon({
   iconAnchor: [26, 52],
 });
 
-const createCustomPopup = ({lat, lng, title}) => `<section class="balloon">
-  <h3 class="balloon__title">${title}</h3>
-  <p class="balloon__lat-lng">Координаты: ${lat}, ${lng}</p>
-  <p class="balloon__lat-lng">Координаты: 123</p>
-</section>`;
-
 let baseMarkerToMap = function (array) {
 
 
   array.forEach ((element) => {
-    const createCustomPopup = ({}) => `<section>
+    const createCustomPopup = () => `<section>
     <h3 >${element.offer.title}</h3>
     <p>Координаты: ${element.offer.address}</p>
     <p>Цена: ${element.offer.price}</p>
@@ -113,15 +107,12 @@ let baseMarkerToMap = function (array) {
     );
 
     baseMarker.addTo(map)
-    .bindPopup(createCustomPopup(generateTestObjects()),
-      {
-        keepInView: true,
-      },
-    );
+      .bindPopup(createCustomPopup(generateTestObjects()),
+        {
+          keepInView: true,
+        },
+      );
   });
 }
 
 baseMarkerToMap(generateTestObjects());
-
-
-
