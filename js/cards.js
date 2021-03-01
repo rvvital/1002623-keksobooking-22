@@ -46,7 +46,7 @@ let getCard = function (obj) {
   newCard.querySelector('.popup__avatar').src = obj.author.avatar;
 
   // Добавляем объявление на страницу
-  cardContainer.appendChild(newCard);
+  //cardContainer.appendChild(newCard);
   return newCard;
 }
 
