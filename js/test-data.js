@@ -40,7 +40,7 @@ const creatObject = function () {
       checkout: randonElementArray(checkout),
       features: randomArray(features),
       description: randonElementArray(description),
-      photos: randomArray(photos),
+      photos: randonElementArray(photos),
     },
 
     location: {
