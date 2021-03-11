@@ -30,7 +30,7 @@ const map = L.map('map-canvas')
     adFormElements.forEach((element) => {
       element.removeAttribute('disabled');
     });
-    inputAdress.setAttribute('disabled', 'disabled');
+    inputAdress.setAttribute('readonly', 'readonly');
     mapFilters.classList.remove('ad-form--disabled');
     mapFilter.forEach((element) => {
       element.removeAttribute('disabled');
