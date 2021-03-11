@@ -13,15 +13,13 @@ fetch('https://22.javascript.pages.academy/keksobooking/data')
   });
 }
 
+let sendData = function (data) {
 
-  let sendData = function () {
-    const formData = new FormData(evt.target);
-    fetch('https://22.javascript.pages.academy/keksobooking',
-    {
-      method: 'POST',
-      body: formData,
-    },
-  );
-  };
-
+  fetch('https://22.javascript.pages.academy/keksobooking',
+  {
+    method: 'POST',
+    body: data,
+  },
+);
+};
 export {getData, sendData};
