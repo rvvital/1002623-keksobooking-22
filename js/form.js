@@ -1,7 +1,6 @@
 import {sendData} from './fetch.js';
-let mainForm = document.querySelector('.ad-form');
+//let mainForm = document.querySelector('.ad-form');
 //mainForm.classList.add('ad-form--disabled');
-
 
 const postForm = document.querySelector('.ad-form');
 
