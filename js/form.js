@@ -9,4 +9,12 @@ postForm.addEventListener('submit', (evt) => {
   const formData = new FormData(evt.target);
 
   sendData(formData);
+
+  //document.querySelector('.ad-form').reset(); //сброс формы после отправки
+  //document.querySelector('.map__filters').reset(); //сброс фильтра после отправки
+});
+
+postForm.addEventListener('reset', () => {
+  document.querySelector('.ad-form').reset(); //сброс формы после отправки
+  document.querySelector('.map__filters').reset(); //сброс фильтра после отправки
 });

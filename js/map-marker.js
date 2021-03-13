@@ -55,7 +55,7 @@ const mainPinIcon = L.icon({
   iconAnchor: [26, 52],
 });
 
-const mainPinMarker = L.marker(
+let mainPinMarker = L.marker(
   {
     lat: 35.66872,
     lng: 139.75355,
@@ -73,6 +73,18 @@ inputAdress.setAttribute('value', (mainPinMarker.getLatLng().lat.toFixed(5) + ',
 mainPinMarker.on('move', (evt) => {
   let coordinates = evt.target.getLatLng();
   inputAdress.setAttribute('value', (coordinates.lat.toFixed(5) + ', ' + coordinates.lng.toFixed(5)));
+});
+
+
+let buttonReset = document.querySelector('.ad-form__reset');
+buttonReset.addEventListener('click', () => {
+  mainPinMarker.setLatLng([35.66872, 139.75355]).update();
+});
+
+
+let buttonSend = document.querySelector('.ad-form__submit');
+buttonSend.addEventListener('click', () => {
+  mainPinMarker.setLatLng([35.66872, 139.75355]).update();
 });
 
 ////////////////////////

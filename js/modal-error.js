@@ -23,4 +23,25 @@ let errorPost = function () {
 
 };
 
-export {errorPost};
+
+let successPost = function () {
+  let mainPage = document.querySelector('main');
+  let temp = document.querySelector('#success');
+
+  mainPage.appendChild(temp.content.cloneNode(true));
+
+  let successCode = mainPage.querySelector('.success');
+
+  successCode.addEventListener('click', () => {
+    successCode.remove();
+  });
+
+  document.addEventListener('keydown', function(evt) {
+    if (evt.key === 'Escape') {
+      successCode.remove();
+    }
+  });
+
+};
+
+export {errorPost, successPost};
