@@ -50,3 +50,52 @@ typeFlat.addEventListener('change', function() {
   }
 })
 
+//Валидация полей Количество комнат и Число гостей
+
+let selectRoomNumber = document.querySelector('#room_number');
+let selectCapacity = document.querySelector('#capacity');
+let optionsCapacity = selectCapacity.querySelectorAll('option');
+
+selectRoomNumber.addEventListener('change', function() {
+  if( this.value === '1' ) {
+    optionsCapacity[0].disabled = true;
+    optionsCapacity[1].disabled = true;
+    optionsCapacity[2].disabled = false;
+    optionsCapacity[3].disabled = true;
+
+    selectCapacity.value = optionsCapacity[2].value;
+  }
+
+  if( this.value === '2' ) {
+    optionsCapacity[0].disabled = true;
+    optionsCapacity[1].disabled = false;
+    optionsCapacity[2].disabled = false;
+    optionsCapacity[3].disabled = true;
+
+    selectCapacity.value = optionsCapacity[2].value;
+  }
+
+  if( this.value === '3' ) {
+    optionsCapacity[0].disabled = false;
+    optionsCapacity[1].disabled = false;
+    optionsCapacity[2].disabled = false;
+    optionsCapacity[3].disabled = true;
+
+    selectCapacity.value = optionsCapacity[2].value;
+  }
+
+  if( this.value === '100' ) {
+    optionsCapacity[0].disabled = true;
+    optionsCapacity[1].disabled = true;
+    optionsCapacity[2].disabled = true;
+    optionsCapacity[3].disabled = false;
+
+    selectCapacity.value = optionsCapacity[3].value;
+  }
+});
+
+
+
+
+
+
