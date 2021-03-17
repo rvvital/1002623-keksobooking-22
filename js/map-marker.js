@@ -134,10 +134,13 @@ let baseMarkerToMap = function (arrayPosts) {
         {
           keepInView: true,
         },
+
       );
   });
+
+
 }
-//baseMarkerToMap(generateTestObjects());
+
 
 
 export {baseMarkerToMap};
