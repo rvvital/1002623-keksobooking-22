@@ -1,6 +1,8 @@
 /* global L:readonly */
 //import{generateTestObjects} from './test-data.js';
 
+let markerBase;
+
 //тестовые данные
 
 let mainForm = document.querySelector('.ad-form');
@@ -49,6 +51,9 @@ L.tileLayer(
   },
 ).addTo(map);
 
+markerBase = L.layerGroup().addTo(map);
+
+
 const mainPinIcon = L.icon({
   iconUrl: './img/main-pin.svg',
   iconSize: [52, 52],
@@ -95,9 +100,10 @@ const baseIcon = L.icon({
   iconAnchor: [26, 52],
 });
 
-
 let baseMarkerToMap = function (arrayPosts) {
+  if (!markerBase) {markerBase = L.layerGroup().addTo(map)}
 
+  markerBase.clearLayers();
   arrayPosts.forEach ((element) => {
 
     const createCustomPopup = () => {
@@ -129,7 +135,7 @@ let baseMarkerToMap = function (arrayPosts) {
       },
     );
 
-    baseMarker.addTo(map)
+    baseMarker.addTo(markerBase)
       .bindPopup(createCustomPopup(),
         {
           keepInView: true,
@@ -137,7 +143,5 @@ let baseMarkerToMap = function (arrayPosts) {
       );
   });
 }
-//baseMarkerToMap(generateTestObjects());
-
 
 export {baseMarkerToMap};

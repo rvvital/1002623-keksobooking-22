@@ -1,6 +1,6 @@
 import {randomInteger, randomFloat, randonElementArray, randomArray} from './utils.js';
 
-const quantityObject = 10;
+const quantityObject = 20;
 
 const avatarNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
 const titlePosts = ['Вилла на побережье', 'Общага в промзоне', 'Хостел в центре'];
