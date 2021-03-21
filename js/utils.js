@@ -19,13 +19,13 @@ function randomFloat(min, max, fixed) {
 }
 
 //нахождение случайного элемена массива
-const randonElementArray = function (arr) {
+const randonElementArray = (arr) => {
   let element = arr[randomInteger(0, arr.length-1)];
   return element;
 }
 
 //массив случайной длинный
-let randomArray = function (arr) {
+let randomArray = (arr) => {
   let index = randomInteger(0, arr.length - 1);
   let newarr = arr.slice(index, index + randomInteger(1, arr.length));
   return newarr;

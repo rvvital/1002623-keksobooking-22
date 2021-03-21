@@ -15,7 +15,7 @@ let errorPost = function () {
     errorCode.remove();
   });
 
-  document.addEventListener('keydown', function(evt) {
+  document.addEventListener('keydown', function (evt) {
     if (evt.key === 'Escape') {
       errorCode.remove();
     }
@@ -24,7 +24,7 @@ let errorPost = function () {
 };
 
 
-let successPost = function () {
+let successPost = () => {
   let mainPage = document.querySelector('main');
   let temp = document.querySelector('#success');
 
@@ -36,7 +36,7 @@ let successPost = function () {
     successCode.remove();
   });
 
-  document.addEventListener('keydown', function(evt) {
+  document.addEventListener('keydown', function (evt) {
     if (evt.key === 'Escape') {
       successCode.remove();
     }
@@ -44,4 +44,4 @@ let successPost = function () {
 
 };
 
-export {errorPost, successPost};
+export { errorPost, successPost };

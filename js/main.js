@@ -7,7 +7,8 @@ import{baseMarkerToMap} from './map-marker.js';
 import {setFilterForm} from './filter.js';
 
 
-getData((posters)=>{baseMarkerToMap(posters);
-  setFilterForm(posters);
+getData((posters) => {
+  baseMarkerToMap(posters);
 
+  setFilterForm(posters);
 });
