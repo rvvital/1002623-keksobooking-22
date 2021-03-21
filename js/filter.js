@@ -1,4 +1,3 @@
-/* global _:readonly */
 import { baseMarkerToMap } from './map-marker.js';
 
 let allForm = document.querySelector('.map__filters');
@@ -53,7 +52,7 @@ let setFilterForm = (posters) => {
       (checkTypeValue(poster) && checkRoomsValue(poster)
       && checkGuestsValue(poster) && checkPriceValue(poster) && checkFeatures(poster)
       && checkFeatures(poster)
-    ));
+      ));
     baseMarkerToMap(res.slice(0, 10));
   });
 }
