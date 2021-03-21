@@ -1,9 +1,7 @@
 /* global L:readonly */
-//import{generateTestObjects} from './test-data.js';
 
 let markerBase;
 
-//тестовые данные
 
 let mainForm = document.querySelector('.ad-form');
 let adFormHeader = document.querySelector('.ad-form-header');
@@ -12,6 +10,7 @@ let mapFilters = document.querySelector('.map__filters');
 let mapFilter = document.querySelectorAll('.map__filter');
 let mapFeatures = document.querySelector('.map__features');
 let inputAdress = document.querySelector('#address');
+
 //Делаем форму неактивной
 mainForm.classList.add('ad-form--disabled');
 adFormHeader.setAttribute('disabled', 'disabled');
@@ -92,7 +91,6 @@ buttonSend.addEventListener('click', () => {
   mainPinMarker.setLatLng([35.66872, 139.75355]).update();
 });
 
-////////////////////////
 
 const baseIcon = L.icon({
   iconUrl: './img/pin.svg',
@@ -106,9 +104,9 @@ let baseMarkerToMap = (arrayPosts) => {
   markerBase.clearLayers();
   arrayPosts.forEach ((element) => {
 
-    const createCustomPopup = () => {
-      const balloonTemplate = document.querySelector('#card').content.querySelector('.popup');
-      const popupElement = balloonTemplate.cloneNode(true);
+    let createCustomPopup = () => {
+      let balloonTemplate = document.querySelector('#card').content.querySelector('.popup');
+      let popupElement = balloonTemplate.cloneNode(true);
 
       popupElement.querySelector('.popup__avatar').src = element.author.avatar;
 
@@ -125,7 +123,7 @@ let baseMarkerToMap = (arrayPosts) => {
       return popupElement;
     };
 
-    const baseMarker = L.marker(
+    let baseMarker = L.marker(
       {
         lat: element.location.lat,
         lng: element.location.lng,

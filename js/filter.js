@@ -1,14 +1,14 @@
 /* global _:readonly */
 import { baseMarkerToMap } from './map-marker.js';
 
+const TIME_DEBOUNCE = 500;
+
 let allForm = document.querySelector('.map__filters');
 
 
 let setFilterForm = (posters) => {
   allForm.addEventListener('change', (_.debounce((
     () => {
-      //const filterTypeFlatValue = evt.target.value;
-
       let checkTypeValue = (poster) => {
         let filterTypeFlatValue = allForm.querySelector('#housing-type').value;
         return (poster.offer.type === filterTypeFlatValue) || filterTypeFlatValue === 'any';
@@ -51,13 +51,13 @@ let setFilterForm = (posters) => {
         });
       };
 
-      let res = posters.filter((poster) =>
+      let checkedFilter = posters.filter((poster) =>
         (checkTypeValue(poster) && checkRoomsValue(poster)
         && checkGuestsValue(poster) && checkPriceValue(poster) && checkFeatures(poster)
         && checkFeatures(poster)
         ));
-      baseMarkerToMap(res.slice(0, 10));
-    }), 500)));
+      baseMarkerToMap(checkedFilter.slice(0, 10));
+    }), TIME_DEBOUNCE)));
 };
 
 export { setFilterForm }

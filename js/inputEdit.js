@@ -1,20 +1,20 @@
 //Обработка времени заезда и выезда
 
 let selectElements = document.querySelector('.ad-form__element--time');
-let selectTime = selectElements.querySelectorAll('select');
+let selectTimes = selectElements.querySelectorAll('select');
 
-for (let i = 0; i < selectTime.length; i++) {
+for (let i = 0; i < selectTimes.length; i++) {
 
-  selectTime[i].addEventListener('change', function() {
+  selectTimes[i].addEventListener('change', function() {
 
-    let id = this.getAttribute('id');
+    let idSelectTime = this.getAttribute('id');
     let select;
 
-    if( id === 'timein' ) {
+    if( idSelectTime === 'timein' ) {
       select = selectElements.querySelector('#timeout');
 
     }
-    else if( id === 'timeout' ) {
+    else if( idSelectTime === 'timeout' ) {
       select = selectElements.querySelector('#timein');
     }
 

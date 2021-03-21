@@ -1,5 +1,4 @@
 import './map-marker.js';
-
 import { showAlert } from './utils.js';
 import { errorPost } from './modal-error.js';
 import { successPost } from './modal-error.js';
@@ -13,7 +12,6 @@ let getData = (onSuccess, onError) => {
     })
     .catch(() => {
       onError(showAlert('Не удалось получить данные. Попробуйте ещё раз'));
-      // showAlert('Не удалось получить данные. Попробуйте ещё раз');
     });
 }
 
