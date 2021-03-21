@@ -4,8 +4,8 @@ import { baseMarkerToMap } from './map-marker.js';
 let allForm = document.querySelector('.map__filters');
 
 
-let setFilterForm = (posters) => {
-  allForm.addEventListener('change', (_.debounce(() => {
+let setFilterForm = (_.debounce(((posters) => {
+  allForm.addEventListener('change', () => {
     //const filterTypeFlatValue = evt.target.value;
 
     let checkTypeValue = (poster) => {
@@ -56,7 +56,7 @@ let setFilterForm = (posters) => {
       && checkFeatures(poster)
       ));
     baseMarkerToMap(res.slice(0, 10));
-  }), 5000));
-};
+  });
+}), 500));
 
 export { setFilterForm }
