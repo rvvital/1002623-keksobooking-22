@@ -1,7 +1,9 @@
+/* global _:readonly */
+
 import { baseMarkerToMap } from './map-marker.js';
 
 let allForm = document.querySelector('.map__filters');
-
+let debounceTime;
 let setFilterForm = (posters) => {
   allForm.addEventListener('change', () => {
     //const filterTypeFlatValue = evt.target.value;
@@ -53,7 +55,7 @@ let setFilterForm = (posters) => {
       && checkGuestsValue(poster) && checkPriceValue(poster) && checkFeatures(poster)
       && checkFeatures(poster)
       ));
-    baseMarkerToMap(res.slice(0, 10));
+    debounceTime(_.debounce(baseMarkerToMap(res.slice(0, 10))), 5000);
   });
 }
 
