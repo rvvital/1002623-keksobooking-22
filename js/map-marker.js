@@ -100,7 +100,7 @@ const baseIcon = L.icon({
   iconAnchor: [26, 52],
 });
 
-let baseMarkerToMap = function (arrayPosts) {
+let baseMarkerToMap = (arrayPosts) => {
   if (!markerBase) {markerBase = L.layerGroup().addTo(map)}
 
   markerBase.clearLayers();
