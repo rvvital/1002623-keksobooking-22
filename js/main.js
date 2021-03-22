@@ -1,4 +1,3 @@
-
 import './fetch.js';
 import { getData } from './fetch.js';
 import  './inputEdit.js';
