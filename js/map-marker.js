@@ -11,7 +11,6 @@ let mapFilter = document.querySelectorAll('.map__filter');
 let mapFeatures = document.querySelector('.map__features');
 let inputAdress = document.querySelector('#address');
 
-//Делаем форму неактивной
 mainForm.classList.add('ad-form--disabled');
 adFormHeader.setAttribute('disabled', 'disabled');
 adFormElements.forEach((element) => {
@@ -23,7 +22,6 @@ mapFilter.forEach((element) => {
 });
 mapFeatures.setAttribute('disabled', 'disabled');
 
-//Добавляем главный маркер
 const map = L.map('map-canvas')
   .on('load', () => {
     mainForm.classList.remove('ad-form--disabled');

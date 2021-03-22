@@ -1,16 +1,26 @@
-import {sendData} from './fetch.js';
+import { sendData } from './fetch.js';
+import { errorPost } from './modal-error.js';
+import { successPost } from './modal-error.js';
 
+const filterForm = document.querySelector('.map__filters');
 const postForm = document.querySelector('.ad-form');
 
 postForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const formData = new FormData(evt.target);
 
-  sendData(formData);
+  sendData(formData, () => {
+    successPost();
+
+    postForm.reset();
+    filterForm.reset();
+  },
+  errorPost,
+  );
 
 });
 
 postForm.addEventListener('reset', () => {
-  document.querySelector('.ad-form').reset(); //сброс формы после отправки
-  document.querySelector('.map__filters').reset(); //сброс фильтра после отправки
+  postForm.reset();
+  filterForm.reset();
 });

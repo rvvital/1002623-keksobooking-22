@@ -6,7 +6,7 @@ const TIME_DEBOUNCE = 500;
 let allForm = document.querySelector('.map__filters');
 
 
-let setFilterForm = (posters) => {
+const setFilterForm = (posters) => {
   allForm.addEventListener('change', (_.debounce((
     () => {
       let checkTypeValue = (poster) => {

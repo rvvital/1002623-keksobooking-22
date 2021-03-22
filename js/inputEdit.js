@@ -1,5 +1,3 @@
-//Обработка времени заезда и выезда
-
 let selectElements = document.querySelector('.ad-form__element--time');
 let selectTimes = selectElements.querySelectorAll('select');
 
@@ -21,8 +19,6 @@ for (let i = 0; i < selectTimes.length; i++) {
     select.value = this.value;
   })
 }
-
-//Обработка типа жилья и цены
 
 let typeFlat = document.querySelector('#type');
 let inputPrice = document.querySelector('#price');
@@ -49,8 +45,6 @@ typeFlat.addEventListener('change', function() {
     inputPrice.setAttribute('placeholder', '10000');
   }
 })
-
-//Валидация полей Количество комнат и Число гостей
 
 let selectRoomNumber = document.querySelector('#room_number');
 let selectCapacity = document.querySelector('#capacity');

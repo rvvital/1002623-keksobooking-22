@@ -1,7 +1,6 @@
 const ALERT_SHOW_TIME = 5000;
 
-//Нахождени случайного целого числа из диапозона включительно
-function randomInteger(min, max) {
+const randomInteger = (min, max) => {
   if (min < 0 || max <= min) {
     return ('Введите корректный диапазон');
   }
@@ -9,8 +8,7 @@ function randomInteger(min, max) {
   return Math.floor(rand);
 }
 
-//Нахождени случайного дробного числа из диапозона включительно с заданной точностью
-function randomFloat(min, max, fixed) {
+const randomFloat = (min, max, fixed) => {
   if (min < 0 || max <= min) {
     return ('Введите корректный диапазон');
   }
@@ -18,14 +16,12 @@ function randomFloat(min, max, fixed) {
   return rand.toFixed(fixed);
 }
 
-//нахождение случайного элемена массива
 const randonElementArray = (arr) => {
   let element = arr[randomInteger(0, arr.length-1)];
   return element;
 }
 
-//массив случайной длинный
-let randomArray = (arr) => {
+const randomArray = (arr) => {
   let index = randomInteger(0, arr.length - 1);
   let newarr = arr.slice(index, index + randomInteger(1, arr.length));
   return newarr;
