@@ -5,15 +5,18 @@ import { successPost } from './modal-error.js';
 const filterForm = document.querySelector('.map__filters');
 const postForm = document.querySelector('.ad-form');
 
+const resetForm = () => {postForm.reset();
+  filterForm.reset();
+  postForm.querySelector('#price').setAttribute('placeholder', '1000')
+}
+
 postForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const formData = new FormData(evt.target);
 
   sendData(formData, () => {
     successPost();
-
-    postForm.reset();
-    filterForm.reset();
+    resetForm();
   },
   errorPost,
   );
@@ -21,6 +24,5 @@ postForm.addEventListener('submit', (evt) => {
 });
 
 postForm.addEventListener('reset', () => {
-  postForm.reset();
-  filterForm.reset();
+  resetForm();
 });
