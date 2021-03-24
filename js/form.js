@@ -23,6 +23,4 @@ postForm.addEventListener('submit', (evt) => {
 
 });
 
-postForm.addEventListener('reset', () => {
-  resetForm();
-});
+postForm.addEventListener('reset', resetForm());
