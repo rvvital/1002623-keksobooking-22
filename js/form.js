@@ -5,7 +5,7 @@ import { successPost } from './modal-error.js';
 const filterForm = document.querySelector('.map__filters');
 const postForm = document.querySelector('.ad-form');
 
-const resetForm = () => {postForm.reset();
+const formResetHandler = () => {postForm.reset();
   filterForm.reset();
   postForm.querySelector('#price').setAttribute('placeholder', '1000')
 }
@@ -16,11 +16,11 @@ postForm.addEventListener('submit', (evt) => {
 
   sendData(formData, () => {
     successPost();
-    resetForm();
+    formResetHandler();
   },
   errorPost,
   );
 
 });
 
-postForm.addEventListener('reset', () => {resetForm()});
+postForm.addEventListener('reset', formResetHandler);
