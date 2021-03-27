@@ -7,7 +7,9 @@ const postForm = document.querySelector('.ad-form');
 
 const formResetHandler = () => {postForm.reset();
   filterForm.reset();
-  postForm.querySelector('#price').setAttribute('placeholder', '1000')
+  postForm.querySelector('#price').setAttribute('placeholder', '1000');
+  postForm.querySelector('#price').setAttribute('min', '1000')
+
 }
 
 postForm.addEventListener('submit', (evt) => {
